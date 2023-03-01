@@ -13,5 +13,5 @@
 /config/jwt/*.pem
 ###< lexik/jwt-authentication-bundle ###
 
-./.idea
-./.DS_Store
+.idea
+.DS_Store
