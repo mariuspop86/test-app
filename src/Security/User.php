@@ -2,10 +2,11 @@
 
 namespace App\Security;
 
+use Hslavich\OneloginSamlBundle\Security\User\SamlUserInterface;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
 
-class User implements UserInterface, PasswordAuthenticatedUserInterface
+class User implements UserInterface, PasswordAuthenticatedUserInterface, SamlUserInterface
 {
     private $username;
     private $email;
@@ -107,5 +108,10 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     {
         // If you store any temporary, sensitive data on the user, clear it here
         // $this->plainPassword = null;
+    }
+
+    public function setSamlAttributes(array $attributes)
+    {
+        $this->email = $attributes['mail'][0];
     }
 }

@@ -1,25 +1,22 @@
 hslavich_onelogin_saml:
   # Basic settings
   idp:
-    entityId: 'http://id.example.com/saml2/idp/metadata.php'
+    entityId: 'https://samltest.id/saml/idp'
     singleSignOnService:
-      url: 'http://id.example.com/saml2/idp/SSOService.php'
+      url: 'https://samltest.id/idp/profile/SAML2/POST/SSO'
       binding: 'urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect'
-    singleLogoutService:
-      url: 'http://id.example.com/saml2/idp/SingleLogoutService.php'
-      binding: 'urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect'
-    x509cert: ''
+    x509cert: '%env(SAML_IDP_CERT)%'
   sp:
-    entityId: 'http://myapp.com/app_dev.php/saml/metadata'
+    entityId: 'http://localhost:8000/saml/metadata'
     assertionConsumerService:
-      url: 'http://myapp.com/app_dev.php/saml/acs'
+      url: 'http://localhost:8000/saml/acs'
       binding: 'urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST'
     singleLogoutService:
-      url: 'http://myapp.com/app_dev.php/saml/logout'
+      url: 'http://localhost:8000/saml/logout'
       binding: 'urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect'
-    privateKey: ''
+    privateKey: '%env(JWT_SECRET_KEY)%'
   # Optional settings
-  baseurl: 'http://myapp.com'
+  baseurl: 'http://localhost:8000/saml/'
   strict: true
   debug: true
   security:

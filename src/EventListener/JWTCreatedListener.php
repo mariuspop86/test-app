@@ -10,10 +10,7 @@ use Symfony\Component\HttpFoundation\RequestStack;
 class JWTCreatedListener
 {
     private $userProvider;
-
-    /**
-     * @param RequestStack $requestStack
-     */
+    
     public function __construct(UserProvider $userProvider)
     {
         $this->userProvider = $userProvider;

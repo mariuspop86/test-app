@@ -7,3 +7,19 @@ $test = [
         'ROLE_ADMIN'
     ]
 ];
+$rick = [
+    'username' => 'rick',
+    'pwd' => 'notused',
+    'email' => 'rsanchez@samltest.id',
+    'roles' => [
+        'ROLE_USER'
+    ]
+];
+$morty = [
+    'username' => 'morty',
+    'pwd' => 'notused',
+    'email' => 'msmith@samltest.id',
+    'roles' => [
+        'ROLE_USER'
+    ]
+];

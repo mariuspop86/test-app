@@ -6,7 +6,7 @@ security:
     # https://symfony.com/doc/current/security.html#loading-the-user-the-user-provider
     providers:
         saml_provider:
-            saml: 
+            id: App\Security\UserProvider
         jwt:
             lexik_jwt: ~
         # used to reload user from session & other features (e.g. switch_user)
@@ -26,6 +26,22 @@ security:
             provider: jwt
             stateless: true
             jwt: ~
+        saml:
+            pattern: ^/saml
+            provider: app_user_provider
+            saml:
+                # Match SAML attribute 'uid' with username.
+                # Uses getNameId() method by default.
+                username_attribute: uid
+                # Use the attribute's friendlyName instead of the name 
+                use_attribute_friendly_name: true
+                check_path: saml_acs
+                login_path: saml_login
+                user_factory: my_user_factory
+                default_target_path: /api/v1/user
+                success_handler: App\Security\SAML\AuthenticatorSuccessHandler
+            logout:
+                path: saml_logout
         dev:
             pattern: ^/(_(profiler|wdt)|css|images|js)/
             security: false
@@ -46,6 +62,8 @@ security:
         # - { path: ^/profile, roles: ROLE_USER }
         - { path: ^/api/login, roles: PUBLIC_ACCESS }
         - { path: ^/api,       roles: IS_AUTHENTICATED_FULLY }
+        - { path: ^/saml/login, roles: PUBLIC_ACCESS }
+        - { path: ^/saml/metadata, roles: PUBLIC_ACCESS }
 
 when@test:
     security:

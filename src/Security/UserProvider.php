@@ -93,7 +93,10 @@ class UserProvider implements UserProviderInterface, PasswordUpgraderInterface
         include $file;
 
         $definedVariables = get_defined_vars();
-
-        return $definedVariables[$identifier] ?? [];
+        if (isset($definedVariables[$identifier])) {
+            return $definedVariables[$identifier]; 
+        }
+        
+        throw new UserNotFoundException();
     }    
 }
