@@ -10,6 +10,8 @@ security:
                 users:
                     john_admin: { password: '$2y$13$926fEY/N4ljYYCOuvGUWouppQny9dfDboutMzM0ys7h.jZWZCXrQ6', roles: [ 'ROLE_ADMIN' ] }
                     jane_admin: { password: '$2y$13$926fEY/N4ljYYCOuvGUWouppQny9dfDboutMzM0ys7h.jZWZCXrQ6', roles: [ 'ROLE_ADMIN', 'ROLE_SUPER_ADMIN' ] }
+        saml_provider:
+            saml: 
         jwt:
             lexik_jwt: ~
     firewalls:
