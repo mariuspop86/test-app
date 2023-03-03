@@ -5,15 +5,11 @@ namespace App\EventListener;
 use App\Security\User;
 use App\Security\UserProvider;
 use Lexik\Bundle\JWTAuthenticationBundle\Event\JWTCreatedEvent;
-use Symfony\Component\HttpFoundation\RequestStack;
 
 class JWTCreatedListener
 {
     private $userProvider;
 
-    /**
-     * @param RequestStack $requestStack
-     */
     public function __construct(UserProvider $userProvider)
     {
         $this->userProvider = $userProvider;
