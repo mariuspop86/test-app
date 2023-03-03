@@ -100,24 +100,6 @@ curl --location --request GET 'http://localhost:8000/api/v1/users?bearer={token}
 ```
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-<!-- LICENSE -->
-## License
-
-Distributed under the MIT License. See `LICENSE.txt` for more information.
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-<!-- CONTACT -->
-## Contact
-
-Pop Marius - [profile](https://github.com/mariuspop86)
-
-Project Link: [https://github.com/mariuspop86/test-app](https://github.com/mariuspop86/test-app)
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-
-
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
 [license-shield]: https://img.shields.io/github/license/mariuspop86/test-app.svg?style=for-the-badge
