@@ -2,6 +2,10 @@
 
 namespace App\Security;
 
+use App\OpenIdOidcTokenTrait;
+use App\Security\OpenID\UserFactory;
+use Drenso\OidcBundle\Security\Authentication\Token\OidcToken;
+use Drenso\OidcBundle\Security\UserProvider\OidcUserProviderInterface;
 use Symfony\Component\Security\Core\Exception\UnsupportedUserException;
 use Symfony\Component\Security\Core\Exception\UserNotFoundException;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
@@ -9,13 +13,17 @@ use Symfony\Component\Security\Core\User\PasswordUpgraderInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Component\Security\Core\User\UserProviderInterface;
 
-class UserProvider implements UserProviderInterface, PasswordUpgraderInterface
+class UserProvider implements UserProviderInterface, PasswordUpgraderInterface, OidcUserProviderInterface
 {
-    private $kernelProjectDir;
+    use OpenIdOidcTokenTrait;
     
-    public function __construct(string $kernelProjectDir)
+    private $kernelProjectDir;
+    private $userFactory;
+
+    public function __construct(string $kernelProjectDir, UserFactory $userFactory)
     {
         $this->kernelProjectDir = $kernelProjectDir;
+        $this->userFactory = $userFactory;
     }
 
     /**
@@ -94,6 +102,21 @@ class UserProvider implements UserProviderInterface, PasswordUpgraderInterface
 
         $definedVariables = get_defined_vars();
 
-        return $definedVariables[$identifier] ?? [];
-    }    
+        if (isset($definedVariables[$identifier])) {
+            return $definedVariables[$identifier];
+        }
+
+        throw new UserNotFoundException();
+    }
+
+    public function loadUserByToken(OidcToken $token): UserInterface
+    {
+        $identifier = $this->getUsernameFromSub($token);
+        try {
+            $this->getUserConfig($identifier);
+        } catch (UserNotFoundException $exception) {
+            return $this->userFactory->createUser($token);
+        }
+        return $this->loadUserByIdentifier($identifier);
+    }
 }

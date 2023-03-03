@@ -10,6 +10,8 @@ security:
         # used to reload user from session & other features (e.g. switch_user)
         app_user_provider:
             id: App\Security\UserProvider
+        openid_user_provider:
+            id: App\Security\UserProvider
     firewalls:
         login:
             pattern: ^/api/login
@@ -24,6 +26,12 @@ security:
             provider: jwt
             stateless: true
             jwt: ~
+        openid:
+            pattern: ^/openid/.*
+            custom_authenticators:
+                - App\Security\OpenID\OpenIDAuthenticator
+            provider: app_user_provider
+            stateless: true
         dev:
             pattern: ^/(_(profiler|wdt)|css|images|js)/
             security: false
