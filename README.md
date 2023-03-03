@@ -5,14 +5,7 @@
   <p align="center">
     Symfony skeleton application ready for SSO integration
     <br />
-    <a href="https://github.com/github_username/repo_name"><strong>Explore the docs »</strong></a>
     <br />
-    <br />
-    <a href="https://github.com/github_username/repo_name">View Demo</a>
-    ·
-    <a href="https://github.com/github_username/repo_name/issues">Report Bug</a>
-    ·
-    <a href="https://github.com/github_username/repo_name/issues">Request Feature</a>
   </p>
 </div>
 
@@ -127,7 +120,7 @@ Project Link: [https://github.com/mariuspop86/test-app](https://github.com/mariu
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
-[license-shield]: https://img.shields.io/github/license/github_username/repo_name.svg?style=for-the-badge
+[license-shield]: https://img.shields.io/github/license/mariuspop86/test-app.svg?style=for-the-badge
 [license-url]: https://github.com/mariuspop86/test-app/blob/main/LICENSE.txt
 [Symfony-shield]: https://symfony.com/favicons/favicon-32x32.png
 [Symfony-url]: https://symfony.com/
