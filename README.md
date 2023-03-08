@@ -40,14 +40,14 @@
 
 This project is meant to be a starting point for adding SSO capabilities to a Symfony 5.4 application with JWT 
 authentication.
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+<p align="right"><a href="#readme-top">:arrow_up:</a></p>
 
 ### Built With
 
-* [![Symfony][Symfony-shield]][Symfony-url]
-* [![Docker][Docker-shield]][Docker-url]
+[![Symfony][Symfony-shield]][Symfony-url]  
+[![Docker][Docker-shield]][Docker-url]  
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+<p align="right"><a href="#readme-top">:arrow_up:</a></p>
 
 <!-- GETTING STARTED -->
 ## Getting Started
@@ -78,7 +78,7 @@ To use this software you must have installed [git](https://git-scm.com/downloads
    ```shell
    docker-compose exec php composer install
    ```
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+<p align="right"><a href="#readme-top">:arrow_up:</a></p>
 
 <!-- USAGE EXAMPLES -->
 ## Usage
@@ -98,7 +98,7 @@ the `bearer` query params
 curl --location --request GET 'http://localhost:8000/api/v1/users?bearer={token}' \
 --header 'Content-Type: application/json'
 ```
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+<p align="right"><a href="#readme-top">:arrow_up:</a></p>
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
